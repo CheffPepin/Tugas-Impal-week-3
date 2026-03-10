@@ -1,0 +1,40 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
+
+
+struct database {
+    int num, sale;
+};
+
+int main()
+{
+    struct database account[5] = {
+        {1234, 5},
+        {4589, 21},
+        {2937, 9},
+        {9068, 17},
+        {6063, 15}
+        };
+    int account_number, i;
+    bool status;
+
+    status = false;
+    i = 0;
+
+    printf("Masukkan account number : ");
+    scanf("%d", &account_number);
+
+    while (i < 5 && status == false){
+        status = account[i].num == account_number;
+        i++;
+    }
+
+    if(status){
+        printf("account number : %d\n", account_number);
+        printf("ammount of sales : %d\n", account[i-1].sale);
+    } else {
+        printf("account number invalid, please try again");
+    }
+
+}
