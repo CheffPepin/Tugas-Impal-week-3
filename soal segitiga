@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+int main()
+{
+    double a,b,c;
+    double max;
+
+    printf("Masukkan nilai a, b, dan c\n");
+    scanf("%lf %lf %lf", &a, &b, &c);
+
+    max = a;
+    if(b > max){
+        max = b;
+    }
+    if (c > max){
+        max = c;
+    }
+
+    if(a <= 0 || b <= 0 || c <= 0 || max >= (a + b + c - max)){
+        printf("TIDAK ADA SEGITIGA YANG DAPAT DIBANGUN\n");
+    } else if(a == b && a == c){
+        printf("SEGITIGA SAMA SISI (EQUILATERAL)\n");
+    } else if(a == b || a == c || b == c){
+        printf("SEGITIGA SAMA KAKI (ISOSCELES)\n");
+    } else if (pow(max,2) == (pow(b,2) + pow(c,2) + pow(a, 2) - pow(max,2))){
+        printf("SEGITIGA SIKU SIKU (RIGHT TRIANGLE)\n");
+    } else {
+        printf("SEGITIGA BEBAS\n");
+    }
+}
